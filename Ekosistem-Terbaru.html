@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Media Pembelajaran Interaktif - Ekosistem IPA SMP</title>
     <meta name="description" content="Media pembelajaran interaktif untuk mata pelajaran IPA SMP Kelas VII tentang Interaksi Makhluk Hidup dengan Lingkungannya">
+    <meta name="theme-color" content="#2D5016">
+    <link rel="manifest" href="./manifest.json">
+    <link rel="icon" href="./icon.svg" type="image/svg+xml">
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1259,18 +1262,15 @@
                 <div class="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-md mb-8">
                     <h2 class="font-heading font-semibold text-xl mb-2 flex items-center gap-2">
                         <i class="ph ph-play-circle text-ocean"></i>
-                        Video Pendahuluan: Konsep Dasar Ekosistem
+                        Video: Interaksi Antar Makhluk Hidup
                     </h2>
                     <p class="text-sm text-slate dark:text-gray-400 mb-4">Saksikan video berikut sebagai pengantar sebelum mempelajari materi utama.</p>
                     <div class="aspect-video w-full overflow-hidden rounded-xl bg-gray-900">
-                        <video class="w-full h-full" controls playsinline preload="metadata" aria-label="Video pendahuluan konsep dasar ekosistem">
-                            <source src="INTERAKSI-MAKHLUKHIDUP.mp4" type="video/mp4">
-                            Browser Anda tidak mendukung pemutar video.
-                        </video>
+                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/mlzFuGkuHME?si=iqrR2n1HENXRtV7I" title="Video Interaksi Antar Makhluk Hidup" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                     </div>
                     <div class="mt-4 text-center">
-                        <a href="https://youtu.be/Ez8hT8RCwzI?si=_8sfPKosoRxsTgRf" target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-ocean hover:text-sky transition-colors underline">
-                            Klik disini jika vidio tidak dapat diputar!
+                        <a href="https://www.youtube.com/watch?v=mlzFuGkuHME" target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-ocean hover:text-sky transition-colors underline">
+                            Buka video di YouTube jika tidak dapat diputar di sini.
                         </a>
                     </div>
                 </div>
@@ -7030,6 +7030,13 @@
         document.addEventListener('DOMContentLoaded', () => {
             app.init();
         });
+
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./service-worker.js')
+                    .catch(error => console.error('Gagal mendaftarkan service worker:', error));
+            });
+        }
     </script>
 </body>
 </html>
